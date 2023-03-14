@@ -1,9 +1,12 @@
 import { AppRouter } from "./router/AppRouter"
+import { AppTheme } from "./tema"
 
 export const SistemaVentas = () => {
   return (
     <>
-    <AppRouter/>
+      <AppTheme>
+        <AppRouter />
+      </AppTheme>
     </>
   )
 }
