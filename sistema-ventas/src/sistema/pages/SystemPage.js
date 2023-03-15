@@ -1,10 +1,11 @@
 
 import { Typography } from "@mui/material"
+import { SystemLayout } from "../layout/SystemLayout"
 
 export const SystemPage = () => {
   return (
-    <>
-      <Typography variant='h1'>systemPage</Typography>
-    </>
+    <SystemLayout>
+    <Typography>Lorenasdjfhkalsjdfhlsdkfjhflkgjsdhflkgjshlksdjfghlsdkfjsghldkfgjsdhfñlgksjdñfglksdjfgñlskdfjgñsldfkgjsñdlfgkjfd</Typography>
+    </SystemLayout>
   )
 }
