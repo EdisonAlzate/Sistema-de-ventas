@@ -9,9 +9,9 @@ import { NothingSelectedView } from "../views/NothingSelectedView"
 export const SystemPage = () => {
   return (
     <SystemLayout>
-      <NothingSelectedView />
+      
       {/*<NothingSelectedView />*/}
-      {/*<NoteView/>*/}
+      <NoteView/>
       <IconButton
         size='large'
         sx={{
