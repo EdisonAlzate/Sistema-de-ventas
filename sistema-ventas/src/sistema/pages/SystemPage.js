@@ -1,18 +1,35 @@
 
-
+import { useDispatch, useSelector } from 'react-redux'
 import { AddOutlined } from "@mui/icons-material"
-import { IconButton } from "@mui/material"
+import { Box, Grid, IconButton } from "@mui/material"
 import { SystemLayout } from "../layout/SystemLayout"
 import { NoteView } from "../views"
 import { NothingSelectedView } from "../views/NothingSelectedView"
+import { startNewProduct } from '../../store/system/thunks'
 
 export const SystemPage = () => {
+
+  const products = useSelector((state) => state.system.products)
+
+  const addToCart = (id) => { 
+    console.log(id)
+  }
+
+
+
+
   return (
     <SystemLayout>
-      
+
       {/*<NothingSelectedView />*/}
-      <NoteView/>
+      <article className="grid-responsive">
+        {products.map(product => (
+          <NoteView key={product.id} data={product} addToCart={addToCart} />
+        ))}
+      </article>
+
       <IconButton
+
         size='large'
         sx={{
           color: 'white',
