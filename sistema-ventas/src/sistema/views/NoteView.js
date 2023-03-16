@@ -27,12 +27,14 @@ export const NoteView = ({data,addToCart}) => {
                 <h4>
                 {name}
                 </h4>
-                <h5>
+                <h5>Price:
                 ${price}.00            
                 </h5>
                 </Box>
             </Grid>
         </Grid>
+                  
+           
         <button onClick={()=>addToCart(id)}>
         Add To Shopping Cart
         </button>
@@ -42,38 +44,3 @@ export const NoteView = ({data,addToCart}) => {
     )
 }
 
-
-// <Grid>
-//                 <Typography fontSize={39} fontWeight='light'>Product 1</Typography>
-//             </Grid>
-//             <Grid item>
-//                 <Button color="primary" sx={{ padding: 2 }}>
-//                     <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
-//                     Buy
-//                 </Button>
-//             </Grid>
-
-//             <Grid container>
-
-
-
-//                 <TextField
-//                     type="text"
-//                     variant="filled"
-//                     fullWidth
-//                     placeholder="Description Product 1"
-//                     label="Description"
-//                     sx={{ border: 'none', mb: 1 }}
-//                 />
-//                 <TextField
-//                     type="text"
-//                     variant="filled"
-//                     fullWidth
-//                     placeholder="How many units do you want to buy"
-//                     label="Units"
-//                     sx={{ border: 'none', mb: 1 }}
-//                 />
-
-               
-//             </Grid>
-//             <ImageGallery />

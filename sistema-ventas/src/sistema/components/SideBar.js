@@ -1,15 +1,26 @@
 import { TurnedInNot } from "@mui/icons-material"
 import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { removeAllFromCart, removeOneFromCart } from "../../store/system/systemSlice"
 
 
 
 export const SideBar = ({ drawerWidth = 240 }) => {
     const cart = useSelector((state) => state.system.cart)
-    
-    const clearCart = () => { 
+    const dispatch = useDispatch()
 
+    const clearCart = () => {
+        dispatch(clearCart)
     }
+    const removeFromCart = (id, all = false) => {
+        console.log(id, all)
+        if (all) {
+            dispatch(removeAllFromCart(id))
+        } else {
+            dispatch(removeOneFromCart(id))
+        }
+    }
+
 
     return (
         <Box
@@ -32,24 +43,21 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 
                 <List>
                     {
-                        cart.map(text => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <TurnedInNot />
-                                    </ListItemIcon>
-                                    <Grid container>
-                                    <ListItemText primary={text.name}/>
-                                    <ListItemText secondary={'somehting'}/>
-                                  
+                        cart.map((text,index) => (
+                            <div className="itemCart" key={index}>
+                                <ListItemText  primary={text.name} />
+                                <h5>${text.price}.00 </h5>
+                                <h5>X{text.quantity} Units</h5>
+                                <h2>Total=${text.price * text.quantity}.00 </h2>
+                                <button onClick={()=>removeFromCart(text.id)}>Delete One</button>
+                                <button onClick={()=>removeFromCart(text.id,true)}>Delete All</button>
 
-                                    </Grid>
-                                </ListItemButton>
-                            </ListItem>
+                            </div>
                         ))
                     }
                 </List>
-                <button onClick={clearCart}>Clear Shopping Cart</button>
+                {/*<h5>Total $</h5>*/}
+                {/*<button onClick={clearCart}>Clear Shopping Cart</button>*/}
 
             </Drawer>
 
