@@ -1,3 +1,30 @@
 .box-shadow{
     box-shadow:1px 6px 4px rgba(0,0,0,0.3) 
 }
+
+.box{
+    padding:1rem;
+    margin:1rem;
+    box-shadow:0 0 1rem #00000025 inset
+}
+
+.grid-responsive{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem;
+}
+
+.productChoose{
+    border:thin solid blue;
+    padding:5px;
+    border-radius: 5px;
+}
+
+.itemCart{
+    background-color: rgb(35, 161, 165);
+    border:5px;
+    border-radius: 5px;
+    padding:1rem;
+    margin:1rem;
+    box-shadow:0 0 1rem #00000025 inset
+}
