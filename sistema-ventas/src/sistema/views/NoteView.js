@@ -15,11 +15,12 @@ import {
 export const NoteView = ({data,addToCart}) => {
 
     const {id,name,price}=data
-    console.log('id',id)
+   
 
     return (
         <>
         <div className="box">
+        
         <Grid container direction='row' justifyContent='space-between' sx={{ mb: 1 }} alignItems='center'>
             <Grid item>
             <Box>

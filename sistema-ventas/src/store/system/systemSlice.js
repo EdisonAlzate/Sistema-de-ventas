@@ -1,11 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 export const systemSlice=createSlice({
     name:'system',
     initialState:{
-        isSaving:true,
-        saveProduct:'',
-        products:[
+            products:[
             {id:1,name:"Product1",price:100},
             {id:2,name:"Product2",price:200},
             {id:3,name:"Product3",price:300},
@@ -13,13 +11,19 @@ export const systemSlice=createSlice({
             {id:5,name:"Product5",price:500},
             {id:6,name:"Product6",price:600},
         ],
-        cart:[        
-        ],
-        activeProduct:null
+        cart:[     
+        ]
+      
     },
     reducers:{
-        addProducts:(state,action)=>{
-            console.log(state)
+        addProducts:(state,action)=>{      
+           let newItem=current(state).products.find(product=>product.id===action.payload)
+           console.log("newItem",newItem);
+           return{
+            ...state,
+            cart:[...state.cart,newItem],
+           }
+      
         },
         removeOneFromCart:(state,action)=>{
             

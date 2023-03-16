@@ -6,14 +6,20 @@ import { SystemLayout } from "../layout/SystemLayout"
 import { NoteView } from "../views"
 import { NothingSelectedView } from "../views/NothingSelectedView"
 import { startNewProduct } from '../../store/system/thunks'
+import { addProducts } from '../../store/system/systemSlice'
 
 export const SystemPage = () => {
 
   const products = useSelector((state) => state.system.products)
 
+  const dispatch=useDispatch()
+
   const addToCart = (id) => { 
-    console.log(id)
+    dispatch(addProducts(id))
+    
   }
+
+ 
 
 
 
@@ -27,6 +33,7 @@ export const SystemPage = () => {
           <NoteView key={product.id} data={product} addToCart={addToCart} />
         ))}
       </article>
+      
 
       <IconButton
 

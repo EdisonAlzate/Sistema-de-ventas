@@ -1,9 +1,16 @@
 import { TurnedInNot } from "@mui/icons-material"
 import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
+import { useSelector } from "react-redux"
 
 
 
 export const SideBar = ({ drawerWidth = 240 }) => {
+    const cart = useSelector((state) => state.system.cart)
+    
+    const clearCart = () => { 
+
+    }
+
     return (
         <Box
             component='nav'
@@ -25,10 +32,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 
                 <List>
                     {
-                        [
-                            { id: "1", name: "Product1", descriptcion: "Description", cost: "5.0" },
-                            { id: "2", name: "Product2", descriptcion: "Description", cost: "7.0" }
-                        ].map(text => (
+                        cart.map(text => (
                             <ListItem key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
@@ -45,6 +49,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
                         ))
                     }
                 </List>
+                <button onClick={clearCart}>Clear Shopping Cart</button>
 
             </Drawer>
 
